@@ -1,0 +1,41 @@
+!!! 5
+html
+  head
+    title My Site #{title}
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    .screen
+      header
+      .nav
+        ul
+          li 
+            a(href='/') Home
+          li 
+            a(href='/band') Band
+          li 
+            a(href='#') Shows
+          li 
+            a(href='#') Media
+          li 
+            a(href='#') Releases
+          li 
+            a(href='#') Links
+          li 
+            a(href='#') Contact Us
+      .containerLeft
+      .containerRight
+        .main-content
+          block content
+        .sidebar
+          .widget
+            h5 Shows
+            P 
+              | November 9th, 2012
+              br
+              | Bogies, NY
+            P 
+              | December 29th, 2012?
+              br
+              | Upstate Concert Hall, NY
+      .footer
+        p Running on node with Express, Jade and Stylus

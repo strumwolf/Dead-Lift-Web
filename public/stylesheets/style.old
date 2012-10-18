@@ -1,0 +1,202 @@
+/*
+ * Import nib
+ */
+@import 'nib'
+
+/*
+ * Grab a custom font from Google
+ */
+@import url('http://fonts.googleapis.com/css?family=Quicksand')
+@import url('http://fonts.googleapis.com/css?family=Permanent+Marker')
+
+/*
+ * Nib provides a CSS reset
+ */
+global-reset()
+
+/*
+ * Store the main color and
+ * background color as variables
+ */
+main-color = #fa5b4d
+background-color = #faf9f0
+
+html, body
+  height 100%
+
+
+body
+  font-family 'Georgia'
+  background-image url('/images/dl_background.jpg')
+  background-color background-color
+  color #ffffff
+
+.screen
+  width 100%
+  height auto
+  min-height 100%
+
+a:link, a:visisted
+  color: #168FAD
+  text-decoration none
+
+header
+  font-family 'Permanent Marker'
+  padding 50px 10px
+  color #fff
+  font-size 25px
+
+  /*
+   * Note the use of main-color
+   * variable and the darken function
+   */
+
+  /* background-color main-color */
+  border-bottom 1px solid darken(#8fde62, 30%)
+  text-shadow 0px - 1px darken(main-color, 30%)
+
+.nav,
+.nav ul,
+.nav li, 
+.nav a
+  margin 0 auto
+  padding 0
+  border none
+  outline none
+.nav
+  height 40px
+  width 630px
+  background #4c4e5a
+  background -webkit-linear-gradient(top, #4c4e5a 0%, #2c2d33 100%)
+  background -moz-linear-gradient(top, #4c4e5a 0%, #2c2d33 100%)
+  background -o-linear-gradient(top, #4c4e5a 0%, #2c2d33 100%)
+  background -ms-linear-gradient(top, #4c4e5a 0%, #2c2d33 100%)
+  background linear-gradient(top, #4c4e5a 0%, #2c2d33 100%)
+  -webkit-border-radius 5px
+  -moz-border-radius 5px
+  -border=radius 5px
+.nav li
+  position relative
+  list-style none
+  float left
+  display block
+  height 40px
+.nav ul
+  display block
+.nav li a
+  display block
+  padding 0 14px
+  margin 6px 0
+  line-height 28px
+  text-decoration none
+  border-left 1px solid #393942
+  border-right 1px solid #4f5058
+  font-family 'Permanent Marker'
+  font-size 18px
+  color #f3f3f3
+  text-shadow 1px 1px 1px rgba(0,0,0,.6)
+  -webkit-transition color .2s ease-in-out
+  -moz-transition color .2s ease-in-out
+  -o-transition color .2s ease-in-out
+  -ms-transition color .2s ease-in-out
+  -transition color .2s ease-in-out
+.nav li:first-child a
+  border-left none
+.nav li:last-child a
+  border-right none
+.nav li:hover > a
+  color #8fde62
+
+.containerleft
+  position relative
+  float left
+  width 125px
+  height 100%
+  min-height 100%
+  margin 50px auto
+
+
+.containerRight
+  position relative
+  float right
+  width 1035px
+  height 100%
+  min-heigh 100%
+  margin-top 50px auto
+
+  .main-content
+    float left
+    position relative  
+    width 630px
+    height auto
+    min-height 100%
+    margin-bottom 50px
+    display block
+    border outset
+    border-color #8fde62
+ 
+    h1
+      color #8fde62
+      text-align center
+      font-family 'Permanent Marker'
+      font-size 26px
+    P
+      margin-bottom 20px
+  
+    .member1Right
+      text-align right       
+    .member1Left
+      text-align left
+    .member2Right
+       text-align right
+    .memeber2Left
+      text-align left
+
+  .sidebar
+    position relative
+    float right
+    width 215px
+    padding-right 100px
+
+    .widget
+    
+      /*
+       * Note the lack of vendor
+       * prefixes here. Nib will
+       * add them for us
+       */
+      border-radius 3px
+      border 1px solid #ccc
+      background-color background-color
+      box-shadow inset 0px 0px 0px 3px rgba(#fff, 0.8), 0px 3px 0px -2px rgba(#000, 0.1)
+    
+      h5
+        font-family 'Permanent Marker'
+        font-size 22px
+        color #000000
+        margin 13px 10px 4px
+        padding-bottom 10px
+        border-bottom 1px dotted #ddd
+        border-radius 2px 2px 0px 0px
+        margin-bottom 10px
+
+      P
+        font-size 13px
+        color #000000
+        line-height 1.0
+        margin-bottom 20px
+        padding 0px 10px
+        border-bottom 1px dotted #ccc
+
+  .img
+    margin 0px auto
+
+.footer
+  clear both
+  position relative
+  width 630px
+  height 140px
+  margin 50px auto
+  border-top 1px dotted #ccc
+  padding-top 5px
+  font-size 13px  

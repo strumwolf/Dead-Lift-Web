@@ -1,0 +1,193 @@
+/*
+ * Import nib
+ */
+@import 'nib'
+
+/*
+ * Grab a custom font from Google
+ */
+@import url('http://fonts.googleapis.com/css?family=Quicksand')
+@import url('http://fonts.googleapis.com/css?family=Permanent+Marker')
+
+/*
+ * Nib provides a CSS reset
+ */
+global-reset()
+
+/*
+ * Store the main color and
+ * background color as variables
+ */
+main-color = #8fde62
+background-color = #faf9f0
+
+html, body
+  height 100%
+
+
+body
+  font-family 'Georgia'
+  background-image url('/images/dl_background.jpg')
+  background-color background-color
+  color #ffffff
+
+.screen
+  width 100%
+  height auto
+  min-height 100%
+
+a:link, a:visisted
+  color: #168FAD
+  text-decoration none
+
+header
+  position relative
+  margin-left auto
+  margin-right auto
+  font-family 'Permanent Marker'
+  color #fff
+  font-size 25px
+  /*  border-bottom 1px solid darken(#8fde62, 30%)
+  text-shadow 0px - 1px darken(main-color, 30%) */
+  .imgHeader
+    width 800px
+    margin 0 auto
+
+.nav,
+.nav ul,
+.nav li, 
+.nav a
+  margin 0 auto
+  padding 0
+  border none
+  outline none
+.nav
+  height 40px
+  width 800px
+  background #4c4e5a
+  background -webkit-linear-gradient(top, #4c4e5a 0%, #2c2d33 100%)
+  background -moz-linear-gradient(top, #4c4e5a 0%, #2c2d33 100%)
+  background -o-linear-gradient(top, #4c4e5a 0%, #2c2d33 100%)
+  background -ms-linear-gradient(top, #4c4e5a 0%, #2c2d33 100%)
+  background linear-gradient(top, #4c4e5a 0%, #2c2d33 100%)
+  -webkit-border-radius 5px
+  -moz-border-radius 5px
+  -border=radius 5px
+.nav li
+  position relative
+  list-style none
+  float left
+  display block
+  height 40px
+.nav ul
+  display block
+.nav li a
+  display block
+  padding 0 26px
+  margin 6px 0
+  line-height 28px
+  text-decoration none
+  border-left 1px solid #393942
+  border-right 1px solid #4f5058
+  font-family 'Permanent Marker'
+  font-size 18px
+  color #f3f3f3
+  text-shadow 1px 1px 1px rgba(0,0,0,.6)
+  -webkit-transition color .2s ease-in-out
+  -moz-transition color .2s ease-in-out
+  -o-transition color .2s ease-in-out
+  -ms-transition color .2s ease-in-out
+  -transition color .2s ease-in-out
+.nav li:first-child a
+  border-left none
+.nav li:last-child a
+  border-right none
+.nav li:hover > a
+  color #8fde62
+
+.container
+  position relative
+  width 800px
+  margin-left auto
+  margin-right auto
+  margin-bottom 50px
+
+  .main-content
+    float left
+    position relative  
+    width 600px
+    margin-bottom 50px
+    display block
+
+    table
+      width 598px
+      background rgb(0, 0, 0)
+      background rgba(0, 0, 0, 0.6)
+      
+      border 1px dotted main-color
+      
+      th
+        text-align center
+        font-size 18px
+        padding-top 10px
+        padding-bottom 15px 
+      td
+        text-align left
+        font-size 14px
+        padding-left 5px
+        padding-bottom 10px
+      tr > td:last-of-type
+        text-align right
+        font-size 12px
+        padding-left 0px
+        padding-right 5px
+
+    h1
+      color #8fde62
+      text-align center
+      font-family 'Permanent Marker'
+      font-size 26px
+    P
+      margin-bottom 20px
+
+    .member1Right
+      text-align right       
+    .member1Left
+      text-align left
+    .member2Right
+       text-align right
+    .memeber2Left
+      text-align left
+
+  .sidebar
+    position relative
+    float right
+    width 198px
+    
+    h5
+      font-family 'Permanent Marker'
+      font-size 22px
+      color #ffffff
+      margin 13px 10px 4px
+      padding-bottom 10px
+      margin-bottom 10px
+
+    P
+      font-size 13px
+      color #ffffff
+      line-height 1.0
+      margin-bottom 20px
+      padding 0px 10px
+
+  .img
+    margin 0px auto
+
+.footer
+  clear both
+  position relative
+  width 800px
+  height 140px
+  margin 50px auto
+  border-top 1px dotted #ccc
+  padding-top 5px
+  font-size 13px  

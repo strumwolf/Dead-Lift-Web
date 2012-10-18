@@ -1,0 +1,21 @@
+extends layout
+block content
+  P
+    | Band Members
+  P
+    | Paul 
+    br
+    | Guitar
+  P
+    | Scott 
+    br
+    | Vox
+  P
+    | Brian 
+    br
+    | Guitar
+  P
+    | Joe 
+    br
+    | Drums
+   
