@@ -1,27 +1,14 @@
 extends layout
 block content
   h1 Band Members
-  P
-  .member1Right
-    | Paul 
-    br
-    | Guitar
-    br
-  P
-  .member1Left
-    | Scott 
-    br
-    | Vox
-    br
-  P
-  .member2Right
-    | Brian 
-    br
-    | Guitar
-    br
-  P
-  .member2Left
-    | Joe 
-    br
-    | Drums
-    br
+  .band-table
+    table
+      tr
+        td
+          input(type='button', value='Paul', onclick="location.href='/'")
+        td
+          input(type='button', value='Scott', onclick="location.href='/'")
+        td
+          input(type='button', value='Brian', onclick="location.href='/'")
+        td
+          input(type='button', value='Joe', onclick="location.href='/'")

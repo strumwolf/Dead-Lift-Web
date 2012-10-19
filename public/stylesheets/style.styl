@@ -119,32 +119,49 @@ header
     margin-bottom 50px
     display block
 
-    table
-      width 598px
-      background rgb(0, 0, 0)
-      background rgba(0, 0, 0, 0.6)
+    .main-table
+      table
+        width 598px
+        background rgb(0, 0, 0)
+        background rgba(0, 0, 0, 0.5)
       
-      border 1px dotted main-color
+        border 1px dotted main-color
       
-      th
-        text-align center
-        font-size 18px
-        padding-top 10px
-        padding-bottom 15px 
-      td
-        text-align left
-        font-size 14px
-        padding-left 5px
-        padding-bottom 10px
-      tr > td:last-of-type
-        text-align right
-        font-size 12px
-        padding-left 0px
-        padding-right 5px
+        th
+          text-align center
+          font-size 18px
+          padding-top 10px
+          padding-bottom 15px 
+        td
+          text-align left
+          font-size 14px
+          padding-left 5px
+          padding-bottom 10px
+        tr > td:last-of-type
+          text-align right
+          font-size 12px
+          padding-left 0px
+          padding-right 5px
+
+    .band-table
+      table
+        width 598px
+        tr
+          margin 0px auto
+        td
+          align left
+          input[type='button']
+            width 100px
+            background #4c4d4a
+            -moz-border-radius 6px
+            -webkit-border-radius 6px
+            border-radius 6px
+            color #ffffff
 
     h1
       color #8fde62
       text-align center
+      margin 15px auto
       font-family 'Permanent Marker'
       font-size 26px
     P
