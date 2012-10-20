@@ -1,14 +1,12 @@
 extends layout
 block content
-  h1 Band Members
-  .band-table
-    table
-      tr
-        td
-          input(type='button', value='Paul', onclick="location.href='/'")
-        td
-          input(type='button', value='Scott', onclick="location.href='/'")
-        td
-          input(type='button', value='Brian', onclick="location.href='/'")
-        td
-          input(type='button', value='Joe', onclick="location.href='/'")
+  include bandLayout.jade
+  .bandContent
+    p
+     | Coming straight out of Schenectady NY, and rocking hard since 2003, 
+     | Dead-Lift is on a mission to prove that pop music is bullshit.
+    p
+     | Don't classify us. We follow no genre. We follow no trends. Our tunes 
+     | come from the heart. Every song we write follows a different path of 
+     | influence, which really makes for an incredible mix of metal, hard rock, 
+     | fusion, and whatever else you could try to use to classify us!

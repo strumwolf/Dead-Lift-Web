@@ -26,14 +26,28 @@ app.use(stylus.middleware(
 ))
 app.use(express.static(__dirname + '/public'))
 
+/*
+app.get('/offline.appcache', function (req, res) {
+  res.header('Content-Type', 'text/cache-manifest'),
+  res.end('CACHE MANIFEST')
+})
+*/
+
 app.get('/', function (req, res) {
   res.render('index',
   { title: 'Home'}
   )
 })
+
 app.get('/band', function (req, res) {
   res.render('band',
   { title: 'Band'}
+  )
+})
+
+app.get('/paul', function (req, res) {
+  res.render('paul',
+  { title: 'Paul'}
   )
 })
 
