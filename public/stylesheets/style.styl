@@ -26,7 +26,7 @@ html, body
 
 
 body
-  font-family 'Georgia'
+  font-family 'Arial' sans-serif
   background-image url('/images/dl_background.jpg')
   background-color background-color
   color #ffffff
@@ -83,7 +83,7 @@ header
   display block
 .nav li a
   display block
-  padding 0 26px
+  padding 0 18px
   margin 6px 0
   line-height 28px
   text-decoration none
@@ -169,14 +169,14 @@ header
       width 598px
       height 100%
       background rgb(0,0,0)
-      background rgba(0,0,0,0.5)
+      background rgba(0,0,0,0.6)
       p
         margin-top 20px
         margin-bottom 20px
       #bandSplit
+        overflow hidden
         margin-top 20px
-        background rgb(0,0,0)
-        background rgba(0,0,0,0.5)
+        height 100%
         .imgBand
           width 301px
           float left
@@ -189,6 +189,27 @@ header
           p
             margin-top 20px
             margin-bottom 20px
+
+    .showTable
+       width 598px
+       height 275px
+       margin-top 0px
+       background rgb(0,0,0)
+       background rgba(0,0,0,0.5)
+      table
+        width 580px
+        margin 0 auto
+        padding-top 20px
+        border-collapse separate
+        th
+          padding 10px 10px 9px
+        td
+          padding 10px 10px 9px
+        tr:nth-child(odd)
+          background rgb(31,31,31)
+          background rgba(31,31,31,0.6)
+        tr:nth-child(odd) td
+          border-left 1px solid #000000
 
   .sidebar
     position relative
