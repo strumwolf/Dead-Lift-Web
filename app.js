@@ -51,4 +51,28 @@ app.get('/paul', function (req, res) {
   )
 })
 
+app.get('/scott', function (req, res) {
+  res.render('scott',
+  { title: 'Scott'}
+  )
+})
+
+app.get('/brian', function (req, res) {
+  res.render('brian',
+  { title: 'Brian'}
+  )
+})
+
+app.get('/joe', function (req, res) {
+  res.render('joe',
+  { title: 'Joe'}
+  )
+})
+ 
+app.get('/shows', function (req, res) {
+  res.render('shows',
+  { title: 'Shows'}
+  )
+})
+
 app.listen(3000)
