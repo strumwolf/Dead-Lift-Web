@@ -75,4 +75,10 @@ app.get('/shows', function (req, res) {
   )
 })
 
+app.get('/video', function (req, res) {
+  res.render('video',
+  { title: 'Video'}
+  )
+})
+
 app.listen(3000)
