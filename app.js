@@ -81,4 +81,10 @@ app.get('/video', function (req, res) {
   )
 })
 
+app.get('/gallery', function (req, res) {
+  res.render('gallery',
+  { title: 'Gallery'}
+  )
+})
+
 app.listen(3000)
