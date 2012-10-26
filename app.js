@@ -15,9 +15,8 @@ function compile(str, path) {
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jade')
 app.set('view options', {
-  layout: false,
-  pretty: true
-})
+  layout: false})
+app.locals.pretty=true
 app.use(express.logger('dev'))
 app.use(stylus.middleware(
   { src: __dirname + '/public'
@@ -84,6 +83,12 @@ app.get('/video', function (req, res) {
 app.get('/gallery', function (req, res) {
   res.render('gallery',
   { title: 'Gallery'}
+  )
+})
+
+app.get('/discography', function (req, res) {
+  res.render('discography',
+  { title: 'Discography'}
   )
 })
 

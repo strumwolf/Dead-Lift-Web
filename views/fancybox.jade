@@ -1,14 +1,15 @@
-meta(http-equiv='Content-Type', content='text/html'; charset=UTF-8')
+link(rel='stylesheet', type='text/css', href='./fancybox/jquery.fancybox.css', media='screen')
 script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js')
 script(type='text/javascript', src='./fancybox/jquery.fancybox.js')
 script(type='text/javascript', src='./fancybox/jquery.fancybox-media.js')
-link(rel='stylesheet', type='text/css', href='./fancybox/jquery.fancybox.css', media='screen')
 
 script(type='text/javascript')
   $(document).ready(function() {  
     $(".yt").fancybox({
         openEffect   : 'none',
         closeEffect  : 'none',
+        width        : '600',
+        height       : '400',
         helpers      : {
           media        : {}
         }
@@ -22,6 +23,3 @@ script(type='text/javascript')
       closeEffect   : 'none'
       })
     })
-      
-            
-
