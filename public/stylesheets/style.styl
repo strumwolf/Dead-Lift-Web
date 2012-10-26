@@ -26,7 +26,7 @@ html, body
 
 
 body
-  font-family 'Arial' sans-serif
+  font-family Helvetica, Arial, sans-serif
   background-image url('/images/dl_background.jpg')
   background-color background-color
   color #ffffff
@@ -36,7 +36,7 @@ body
   height auto
   min-height 100%
 
-a:link, a:visisted
+a:link, a:visited
   color: #168FAD
   text-decoration none
 
@@ -52,58 +52,60 @@ header
   .imgHeader
     width 800px
     margin 0 auto
+    position relative
 
-.nav,
-.nav ul,
-.nav li, 
-.nav a
-  margin 0 auto
-  padding 0
-  border none
-  outline none
-.nav
-  height 40px
-  width 800px
-  background #4c4e5a
-  background -webkit-linear-gradient(top, #4c4e5a 0%, #2c2d33 100%)
-  background -moz-linear-gradient(top, #4c4e5a 0%, #2c2d33 100%)
-  background -o-linear-gradient(top, #4c4e5a 0%, #2c2d33 100%)
-  background -ms-linear-gradient(top, #4c4e5a 0%, #2c2d33 100%)
-  background linear-gradient(top, #4c4e5a 0%, #2c2d33 100%)
-  -webkit-border-radius 5px
-  -moz-border-radius 5px
-  -border=radius 5px
-.nav li
-  position relative
-  list-style none
-  float left
-  display block
-  height 40px
-.nav ul
-  display block
-.nav li a
-  display block
-  padding 0 18px
-  margin 6px 0
-  line-height 28px
-  text-decoration none
-  border-left 1px solid #393942
-  border-right 1px solid #4f5058
-  font-family 'Permanent Marker'
-  font-size 18px
-  color #f3f3f3
-  text-shadow 1px 1px 1px rgba(0,0,0,.6)
-  -webkit-transition color .2s ease-in-out
-  -moz-transition color .2s ease-in-out
-  -o-transition color .2s ease-in-out
-  -ms-transition color .2s ease-in-out
-  -transition color .2s ease-in-out
-.nav li:first-child a
-  border-left none
-.nav li:last-child a
-  border-right none
-.nav li:hover > a
-  color #8fde62
+nav
+  .nav,
+  .nav ul,
+  .nav li, 
+  .nav a
+    margin 0 auto
+    padding 0
+    border none
+    outline none
+  .nav
+    height 40px
+    width 800px
+    background #4c4e5a
+    background -webkit-linear-gradient(top, #4c4e5a 0%, #2c2d33 100%)
+    background -moz-linear-gradient(top, #4c4e5a 0%, #2c2d33 100%)
+    background -o-linear-gradient(top, #4c4e5a 0%, #2c2d33 100%)
+    background -ms-linear-gradient(top, #4c4e5a 0%, #2c2d33 100%)
+    background linear-gradient(top, #4c4e5a 0%, #2c2d33 100%)
+    -webkit-border-radius 5px
+    -moz-border-radius 5px
+    -border=radius 5px
+  .nav li
+    position relative
+    list-style none
+    float left
+    display block
+    height 40px
+  .nav ul
+    display block
+  .nav li a
+    display block
+    padding 0 18px
+    margin 6px 0
+    line-height 28px
+    text-decoration none
+    border-left 1px solid #393942
+    border-right 1px solid #4f5058
+    font-family 'Permanent Marker'
+    font-size 18px
+    color #f3f3f3
+    text-shadow 1px 1px 1px rgba(0,0,0,.6)
+    -webkit-transition color .2s ease-in-out
+    -moz-transition color .2s ease-in-out
+    -o-transition color .2s ease-in-out
+    -ms-transition color .2s ease-in-out
+    -transition color .2s ease-in-out
+  .nav li:first-child a
+    border-left none
+  .nav li:last-child a
+    border-right none
+  .nav li:hover > a
+    color #8fde62
 
 .container
   position relative
@@ -151,7 +153,6 @@ header
         tr
           margin 0px auto
         td
-          align left
           input[type='button']
             width 100px
             background #4c4d4a
@@ -259,7 +260,6 @@ header
       cursor pointer
       -moz-user-select none
       -khtml-user-select none
-      user-select none
 
   #discHeader
     width 590px
@@ -270,13 +270,18 @@ header
     font-size 20px
     text-align left
     background rgb(143,222,98)
-    background rgba(143,222,98,0.6)
+    -moz-border-radius 10px
+    -webkit-border-radius 10px
+    border-radius 10px
   .discMain
     clear both
     width 600px
     height 245px
     background rgb(0,0,0)
     background rgba(0,0,0,0.5)
+    -moz-border-radius 10px
+    -webkit-border-radius 10px
+    border-radius 10px
     .discImageLeft
       float left
       width 220px
