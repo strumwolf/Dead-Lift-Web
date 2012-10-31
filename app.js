@@ -92,4 +92,16 @@ app.get('/discography', function (req, res) {
   )
 })
 
+app.get('/poormans', function (req, res) {
+  res.render('poormans',
+  { title: "Poor Man's Anthem"}
+  )
+})
+
+app.get('/thestruggle', function (req, res) {
+  res.render('thestruggle',
+  { title: "The Struggle"}
+  )
+})
+
 app.listen(3000)

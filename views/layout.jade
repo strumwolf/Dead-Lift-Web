@@ -3,7 +3,7 @@ html
   head
     meta(charset='UTF-8')
     //Mobile viewport optimized: j.mp/bplateviewport 
-    meta(name='viewport', content='width=device-width, initial-scale=0.40')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Dead-Lift #{title}
     link(type='text/css', rel='stylesheet', href='/stylesheets/style.css')
 
@@ -39,15 +39,15 @@ html
         .main-content
           block content
         .sidebar
-          .widget
-            h5 Shows
-            P 
-              | November 9th, 2012
-              br
-              | Bogies, NY
-            P 
-              | December 29th, 2012?
-              br
-              | Upstate Concert Hall, NY
+          h5 Shows
+          P 
+            | November 9th, 2012
+            br
+            | Bogies, NY
+          P 
+            | December 29th, 2012?
+            br
+            | Upstate Concert Hall, NY
+          block sideContent
       .footer
         p &copy; Dead-Lift 2012

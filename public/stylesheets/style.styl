@@ -24,6 +24,10 @@ background-color = #faf9f0
 html, body
   height 100%
 
+ol
+  list-style decimal
+  list-style-position inside
+  color #ffffff
 
 body
   font-family Helvetica, Arial, sans-serif
@@ -265,11 +269,15 @@ nav
     width 590px
     height 25px
     margin-top 5px
-    margin-bottom 10px
     padding 5px
     font-size 20px
     text-align left
-    background rgb(143,222,98)
+    background main-color
+    background -webkit-linear-gradient(top, #8fde62 0%, #000000 100%)
+    background -moz-linear-gradient(top, #8fde62 0%, #000000 100%)
+    background -o-linear-gradient(top, #8fde62 0%, #000000 100%)
+    background -ms-linear-gradient(top, #8fde62 0%, #000000 100%)
+    background linear-gradient(top, #8fde62 0%, #000000 100%)
     -moz-border-radius 10px
     -webkit-border-radius 10px
     border-radius 10px
@@ -279,6 +287,7 @@ nav
     height 245px
     background rgb(0,0,0)
     background rgba(0,0,0,0.5)
+    border 1px dotted main-color
     -moz-border-radius 10px
     -webkit-border-radius 10px
     border-radius 10px
@@ -288,17 +297,12 @@ nav
       margin-top 20px
       margin-bottom 20px
       margin-left 10px
-      a 
-        display inline-block
+      img
+        display block
         width 200px
         height 200px
-        position relative
-        border 2px solid main-color
-      a img
-        display block
-        width 100%
-        height 100%
         position absolute
+        border 2px solid main-color
     .discDescriptionRight
       float right
       width 370px
@@ -306,8 +310,18 @@ nav
       margin-bottom 20px
       font-size 14px
       text-align left
-
-
+  .tracks
+    clear both
+    width 600px
+    height 245px
+    background rgb(0,0,0)
+    background rgba(0,0,0,0.5)
+    border 1px dotted main-color
+    -moz-border-radius 10px
+    -webkit-border-radius 10px
+    border-radius 10px
+    p
+      color main-color
 
   .sidebar
     position relative
