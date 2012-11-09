@@ -104,4 +104,11 @@ app.get('/thestruggle', function (req, res) {
   )
 })
 
+app.get('/links', function (req, res) {
+  res.render('links',
+  { title: "Links"}
+  )
+})
+
+
 app.listen(3000)
