@@ -118,36 +118,49 @@ app.get('/contact', function (req, res) {
 })
 
 app.post('/contact', function (req, res) {
-  console.log('Post Started')
-  var uEmail = req.body.email
-    , uSubject = req.body.subject
-    , uMessage = req.body.message
-  
-    console.log(uEmail)
-    console.log(uSubject)
-    console.log(uMessage)
-    var mailer   = require("mailer")
-      , username = process.env.MANDRILL_USERNAME
-      , password = process.env.MANDRILL_PASSWORD;
-    console.log('Starting Send')
-    mailer.send(
-      { host:           "smtp.mandrillapp.com"
-      , port:           587
-      , to:             "general@dead-lift.com"
-      , from:           uEmail
-      , subject:        uSubject
-      , body:           uMessage
-      , authentication: "login"
-      , username:       "deadliftmusic@hotmail.com"
-      , password:       "5e086c89-06dd-4e55-b89f-47ddc9a0209f"
-    }, function(err, result){
-      if(err){
-        console.log(err);
+  if (req.body.message == '' || req.body.subject == '' || req.body.email == '') {
+    res.redirect('/nomess')
+    return false
+  }
+  else {
+    console.log('Post Started')
+    var uEmail = req.body.email
+      , uSubject = req.body.subject
+      , uMessage = req.body.message
+      , atpos = uEmail.indexOf("@")
+      , dotpos = uEmail.lastIndexOf(".")
+      console.log(uEmail)
+      console.log(uSubject)
+      console.log(uMessage)
+      if (atpos < 1 || dotpos < atpos+2 || dotpos+2 >= uEmail.length) {
+        res.redirect('invalidemail')
+        return false
+      }
+      else {
+        var mailer   = require("mailer")
+          , username = process.env.MANDRILL_USERNAME
+          , password = process.env.MANDRILL_PASSWORD;
+        console.log('Starting Send')
+        mailer.send(
+          { host:           "smtp.mandrillapp.com"
+          , port:           587
+          , to:             "general@dead-lift.com"
+          , from:           uEmail
+          , subject:        uSubject
+          , body:           uMessage
+          , authentication: "login"
+          , username:       "deadliftmusic@hotmail.com"
+          , password:       "5e086c89-06dd-4e55-b89f-47ddc9a0209f"
+        }, function(err, result){
+          if(err){
+            console.log(err);
+          }
+        }
+        );
+      console.log('Finishing Send')
+      res.redirect('/thanks')
       }
     }
-    );
-  console.log('Finishing Send')
-  res.redirect('/thanks')
 })
 
 app.get('/thanks', function (req, res) {
@@ -155,6 +168,17 @@ app.get('/thanks', function (req, res) {
   { title: "Thanks You"}
   )
 })
-  
+
+app.get('/nomess', function (req, res) {
+  res.render('nomess',
+  { title: "No Message"}
+  )
+})
+
+app.get('/invalidemail', function (req, res) {
+  res.render('invalidemail',
+  { title: "Invalid Email"}
+  )
+})
 
 app.listen(3000)
