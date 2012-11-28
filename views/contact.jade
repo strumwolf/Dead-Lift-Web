@@ -1,0 +1,25 @@
+extends layout
+block content
+  #pageHeader
+    | Contact Us
+  .contactMain
+    form(id='formEmail', action='/contact', authocomplete='off', enctype='multipart/form-data', method='post') 
+      table
+        tr
+          td
+            | Email:  
+            input(id='email', type='text', name='email')
+        tr 
+          td
+            | Subject:
+            input(id='subject', type='text', name='subject')
+        tr
+          td
+            | Message:          
+        tr
+          td(colspan='4')
+            textarea(id='message', name='message', spellcheck='true', rows='20', cols='72')
+        tr
+          td
+            input(type='submit')
+   

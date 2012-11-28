@@ -18,6 +18,7 @@ app.set('view options', {
   layout: false})
 app.locals.pretty=true
 app.use(express.logger('dev'))
+app.use(express.bodyParser())
 app.use(stylus.middleware(
   { src: __dirname + '/public'
   , compile: compile
@@ -110,5 +111,50 @@ app.get('/links', function (req, res) {
   )
 })
 
+app.get('/contact', function (req, res) {
+  res.render('contact',
+  { title: "Contact"}
+  )
+})
+
+app.post('/contact', function (req, res) {
+  console.log('Post Started')
+  var uEmail = req.body.email
+    , uSubject = req.body.subject
+    , uMessage = req.body.message
+  
+    console.log(uEmail)
+    console.log(uSubject)
+    console.log(uMessage)
+    var mailer   = require("mailer")
+      , username = process.env.MANDRILL_USERNAME
+      , password = process.env.MANDRILL_PASSWORD;
+    console.log('Starting Send')
+    mailer.send(
+      { host:           "smtp.mandrillapp.com"
+      , port:           587
+      , to:             "general@dead-lift.com"
+      , from:           uEmail
+      , subject:        uSubject
+      , body:           uMessage
+      , authentication: "login"
+      , username:       "deadliftmusic@hotmail.com"
+      , password:       "5e086c89-06dd-4e55-b89f-47ddc9a0209f"
+    }, function(err, result){
+      if(err){
+        console.log(err);
+      }
+    }
+    );
+  console.log('Finishing Send')
+  res.redirect('/thanks')
+})
+
+app.get('/thanks', function (req, res) {
+  res.render('thanks',
+  { title: "Thanks You"}
+  )
+})
+  
 
 app.listen(3000)
