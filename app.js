@@ -25,6 +25,7 @@ app.use(stylus.middleware(
   }
 ))
 app.use(express.static(__dirname + '/public'))
+app.use(express.favicon(__dirname + '/public/images/favicon.ico'))
 
 /*
 app.get('/offline.appcache', function (req, res) {
@@ -137,31 +138,23 @@ app.post('/contact', function (req, res) {
         return false
       }
       else {
-        var mailer   = require("mailer")
-          , username = process.env.MANDRILL_USERNAME
-          , password = process.env.MANDRILL_PASSWORD;
-        console.log('Starting Send')
-        mailer.send(
-          { host:           "smtp.mandrillapp.com"
-          , port:           587
-          , to:             "general@dead-lift.com"
-          , from:           uEmail
-          , subject:        uSubject
-          , body:           uMessage
-          , authentication: "login"
-          , username:       "deadliftmusic@hotmail.com"
-          , password:       "5e086c89-06dd-4e55-b89f-47ddc9a0209f"
-        }, function(err, result){
-          if(err){
-            console.log(err);
-          }
+        var MandrillAPI = require('mailchimp').MandrillAPI;
+        var apiKey = '5e086c89-06dd-4e55-b89f-47ddc9a0209f';
+        try { 
+          var mandrill = new MandrillAPI(apiKey, { version : '1.0', secure: false });
+        } catch (error) {
+          console.log(error.message);
         }
-        );
-      console.log('Finishing Send')
-      res.redirect('/thanks')
+        mandrill.messages_send({message: { text: uMessage, subject: uSubject, from_email: uEmail, to: [{email: "general@dead-lift.com"}]}}, function (error, data) {
+          if (error)
+            console.log(error.message);
+          else
+            console.log(JSON.stringify(data)); // Do something with your data!
+        });        
+        console.log('Finishing Send')
+        res.redirect('/thanks')
       }
-    }
-})
+}})
 
 app.get('/thanks', function (req, res) {
   res.render('thanks',
@@ -178,6 +171,12 @@ app.get('/nomess', function (req, res) {
 app.get('/invalidemail', function (req, res) {
   res.render('invalidemail',
   { title: "Invalid Email"}
+  )
+})
+
+app.get('/public/images/favicon.ico', function (req, res) {
+  res.render('favicon.ico',
+  { title: "Fav Icon"}
   )
 })
 

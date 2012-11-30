@@ -20,6 +20,11 @@ block content
       li
         p
           | Break Down
+          br
+          audio(controls='controls', height='75', width='100')
+            source(src='/tunes/BreakDown.mp3', type='audio/mp3')
+            source(src='/tunes/BreakDown.ogg', type='audio/ogg')
+            embed(height='100', width='100', src='/tunes/BreakDown.mp3')
       li
         p
           | Speak My Name
