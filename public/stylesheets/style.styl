@@ -127,6 +127,8 @@ nav
     margin-bottom 50px
     display block
 
+    ul
+
     .main-table
       table
         width 598px
@@ -152,6 +154,10 @@ nav
           font-size 12px
           padding-left 0px
           padding-right 5px
+
+      form
+
+        
 
     .band-table
       table
@@ -352,6 +358,9 @@ nav
     -webkit-border-radius 10px
     margin-top 10px
 
+    p
+      margin 5px
+
     form
       padding 10px
 
@@ -373,6 +382,31 @@ nav
       padding 3px 0px 3px 3px
       border 1px solid rgba(83,167,35,1)
 
+    textarea
+      resize none
+
+  .posts
+    input[type=text], textarea
+      -webkit-transition all 0.20s ease-in-out
+      -moz-transition all 0.20s ease-in-out
+      -ms-transition all 0.20s ease-in-out
+      -o-transition all 0.20s ease-in-out
+      outline: none
+      padding 3px 0px 3px 3px
+      margin 5px 1px 3px 0px
+      border 1px solid #DDDDDD
+      -moz-border-radius 5px
+      -webkit-border-radius 5px
+
+    input[type=text]:focus, textarea:focus 
+      box-shadow 0 1px 15px rgba(83,167,35,1)
+      margin 5px 1px 3px 0px
+      padding 3px 0px 3px 3px
+      border 1px solid rgba(83,167,35,1)
+
+    textarea
+      resize none
+
 
   .sidebar
     position relative
@@ -393,6 +427,9 @@ nav
       line-height 1.0
       margin-bottom 20px
       padding 0px 10px
+    img
+      position relative
+      margin 5px
 
   .img
     margin 0px auto

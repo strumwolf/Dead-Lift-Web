@@ -5,6 +5,7 @@
 var express = require('express')
   , stylus = require('stylus')
   , nib = require('nib')
+  , pg = require('pg')
 
 var app = express()
 function compile(str, path) {
@@ -18,6 +19,7 @@ app.set('view options', {
   layout: false})
 app.locals.pretty=true
 app.use(express.logger('dev'))
+app.use(express.methodOverride())
 app.use(express.bodyParser())
 app.use(stylus.middleware(
   { src: __dirname + '/public'
@@ -27,6 +29,9 @@ app.use(stylus.middleware(
 app.use(express.static(__dirname + '/public'))
 app.use(express.favicon(__dirname + '/public/images/favicon.ico'))
 
+/*var conString = 'pg://pi@localhost:5432/dldb'*/
+var client = new pg.Client({user: 'pi', password: 'megadeth13', database: 'dldb'})
+client.connect()
 /*
 app.get('/offline.appcache', function (req, res) {
   res.header('Content-Type', 'text/cache-manifest'),
@@ -35,11 +40,38 @@ app.get('/offline.appcache', function (req, res) {
 */
 
 app.get('/', function (req, res) {
-  res.render('index',
-  { title: 'Home'}
+  var query = client.query('SELECT title, body, date FROM posts ORDER BY id desc;')
+  var posts = []
+  query.on("row", function(row, result) {
+    result.addRow = (row)
+    posts.push(row)
+  })
+  query.on("end", function(result) {
+    console.log(result)
+    console.log(result.rowCount + ' rows where received')
+    console.log(result.rows[0])
+    console.log(posts.valueOf())
+    res.render('index',
+    { title: 'Home',
+      result: posts}
+    )
+  })
+})
+
+app.get('/new_post', function (req, res) {
+  res.render('new_post',
+  { title: 'New Post' }
   )
 })
 
+app.post('/new_post', function (req, res) {
+  var title = req.body.title
+    , body = req.body.body
+  console.log('Title: ' + title + ' body: ' + body)
+  client.query('INSERT INTO posts (title, body, date) values ($1, $2, $3);', [title, body, new Date()])
+  res.redirect("back")
+})
+    
 app.get('/band', function (req, res) {
   res.render('band',
   { title: 'Band'}
@@ -145,7 +177,7 @@ app.post('/contact', function (req, res) {
         } catch (error) {
           console.log(error.message);
         }
-        mandrill.messages_send({message: { text: uMessage, subject: uSubject, from_email: uEmail, to: [{email: "general@dead-lift.com"}]}}, function (error, data) {
+        mandrill.messages_send({message: { text: uMessage, subject: uSubject, from_email: uEmail, to: [{email: "general@dead-lift.com"}], track_opens: "true"}}, function (error, data) {
           if (error)
             console.log(error.message);
           else

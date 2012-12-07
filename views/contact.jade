@@ -3,6 +3,16 @@ block content
   #pageHeader
     | Contact Us
   .contactMain
+    br
+    p
+      | Want to book a show or just say hi? Email us at
+      a(href='mailto: general@dead-lift.com')  general@dead-lift.com
+      |  or use the form below! We are also on 
+      a(href='http://www.twitter.com/deadlift518')img(src='/images/twitter.png', width='50', height='50')
+      |  and         
+      a(href='http://www.facebook.com/pages/Dead-Lift/120128450045')img(src='/images/f_logo.jpg', width='40', height='40')
+      |  .
+    br
     form(id='formEmail', action='/contact', authocomplete='off', enctype='multipart/form-data', method='post') 
       table
         tr
@@ -10,19 +20,19 @@ block content
             | Email:  
         tr
           td          
-            input(id='email', type='text', name='email')
+            input(id='email', type='text', name='email', required)
         tr 
           td
             | Subject:
         tr
           td
-            input(id='subject', type='text', name='subject')
+            input(id='subject', type='text', name='subject', required)
         tr
           td
             | Message:          
         tr
           td(colspan='4')
-            textarea(id='message', name='message', spellcheck='true', rows='15', cols='68')
+            textarea(id='message', name='message', spellcheck='true', rows='15', cols='68', required)
         tr
           td
             input(type='submit')

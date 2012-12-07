@@ -5,6 +5,7 @@ html
     //Mobile viewport optimized: j.mp/bplateviewport 
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Dead-Lift #{title}
+    link(rel='shortcut icon', href='/images/favicon.ico', type='image/x-icon')
     link(type='text/css', rel='stylesheet', href='/stylesheets/style.css')
 
     //if lt IE 10
@@ -48,13 +49,15 @@ html
             | December 29th, 2012?
             br
             | Upstate Concert Hall, NY
-          a(class='twitter-timeline', data-dnt='true', href='https://twitter.com/DeadLift518', data-widget-id='274175619145809920') Tweets by @DeadLift518
-          script
-            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];
-            if(!d.getElementById(id)){js=d.createElement(s);
-            js.id=id;js.src="http://platform.twitter.com/widgets.js";
-            fjs.parentNode.insertBefore(js,fjs);}}
-            (document,"script","twitter-wjs");
+            br
+            table
+              tr
+                td 
+                  a(href='http://www.twitter.com/deadlift518')
+                    img(src='/images/twitter.png', width='82', height='82')
+                td
+                  a(href='http://www.facebook.com/pages/Dead-Lift/120128450045')
+                    img(src='/images/f_logo.jpg', width='64', height='64')
 
       .footer
         p &copy; Dead-Lift 2012
