@@ -67,8 +67,16 @@ app.get('/new_post', function (req, res) {
 app.post('/new_post', function (req, res) {
   var title = req.body.title
     , body = req.body.body
+    , d = new Date()
+    , m_names = new Array("January","February","March","April","May","June","July","August","September","October","November","December")
+    , currDate = d.getDate()
+    , currMonth = d.getMonth()
+    , currYear = d.getFullYear()
+    , fullDate = ('Posted on ' + m_names[currMonth] + ' ' + currDate + ', ' + currYear)
+
+  console.log(fullDate)
   console.log('Title: ' + title + ' body: ' + body)
-  client.query('INSERT INTO posts (title, body, date) values ($1, $2, $3);', [title, body, new Date()])
+  client.query('INSERT INTO posts (title, body, date) values ($1, $2, $3);', [title, body, fullDate])
   res.redirect("back")
 })
     
