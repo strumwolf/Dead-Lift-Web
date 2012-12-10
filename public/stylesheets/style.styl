@@ -75,7 +75,9 @@ nav
     background linear-gradient(top, #4c4e5a 0%, #2c2d33 100%)
     -webkit-border-radius 5px
     -moz-border-radius 5px
-    -border=radius 5px
+    border-radius 5px
+    -pie-background linear-gradient(#4c4e5a, #2c2d33)
+    behavior url('/stylesheets/PIE.htc')
   .nav li
     position relative
     list-style none
@@ -149,10 +151,6 @@ nav
           font-size 12px
           padding-left 0px
           padding-right 5px
-
-      form
-
-        
 
     .band-table
       table
@@ -277,18 +275,21 @@ nav
     font-family 'Permanent Marker'
     font-size 20px
     text-align center
+    -moz-border-radius 10px
+    -webkit-border-radius 10px
+    border-radius 10px
     background #8fde62
-    filter:progid:DXImageTransform.Microsoft.Gradient 
-      (GradientType=0,StartColorStr=#8fde62,EndColorStr=#000000)
     background -webkit-linear-gradient(top, #8fde62 0%, #000000 100%)
     background -moz-linear-gradient(top, #8fde62 0%, #000000 100%)
     background -o-linear-gradient(top, #8fde62 0%, #000000 100%)
     background -ms-linear-gradient(top, #8fde62 0%, #000000 100%)
     background linear-gradient(top, #8fde62 0%, #000000 100%)
-    -moz-border-radius 10px
-    -webkit-border-radius 10px
-    border-radius 10px
-
+    background linear-gradient(top, #8fde62, #000000)
+    /*add-property(filter, s('progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#8fde62, endColorstr=#000000);', fullcolor(#8fde62), fullcolor(#000000)))
+    add-property(-ms-filter, s('progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#8fde62, endColorstr=#000000);', fullcolor(#8fde62), fullcolor(#000000)))*/
+    -pie-background linear-gradient(#8fde62, #000000)
+    behavior url('/stylesheets/PIE.htc')
+        
   .discMain
     clear both
     width 600px
@@ -414,22 +415,28 @@ nav
     position relative
     float right
     width 198px
-    
-    h5
-      font-family 'Permanent Marker'
-      font-size 22px
-      color #ffffff
-      margin 13px 10px 4px
-      padding-bottom 10px
-      margin-bottom 10px
 
-    P
-      font-size 13px
-      color #ffffff
-      line-height 1.0
-      margin-bottom 20px
-      padding 0px 10px
-    img
+    .shows
+      border 1px dotted main-color
+      border-radius 10px
+      -moz-border-radius 10px
+      -o-border-radius 10px
+      -webkit-border-radius 10px
+      h5
+        font-family 'Permanent Marker'
+        font-size 22px
+        color #ffffff
+        margin 13px 10px 4px
+        padding-bottom 10px
+        margin-bottom 10px
+        border-bottom 1px solid #4c4e5a
+      p
+        font-size 13px
+        color #ffffff
+        line-height 1.0
+        margin-bottom 20px
+        padding 0px 10px
+      img
       position relative
       margin 5px
 
