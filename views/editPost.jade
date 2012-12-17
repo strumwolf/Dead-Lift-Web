@@ -1,0 +1,14 @@
+extends layout
+block content
+  .main-table
+    #pageHeader
+      | Edit
+    each d in result
+      table
+        tr
+          th #{d.title}
+        tr
+          td #{d.body}
+          td
+        tr
+          td #{d.date}
