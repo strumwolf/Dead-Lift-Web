@@ -19,10 +19,10 @@ exports.postings = function (req, res) {
     posts.push(row)
   })
   query.on("end", function(result) {
-    console.log(result)
-    console.log(result.rowCount + ' rows where received')
-    console.log(result.rows[0])
-    console.log(posts.valueOf())
+    //console.log(result)
+    //console.log(result.rowCount + ' rows where received')
+    //console.log(result.rows[0])
+    //console.log(posts.valueOf())
     res.render('index',
     { title: 'Home',
       result: posts}
@@ -41,11 +41,11 @@ exports.post_set = function (req, res) {
     , currYear = d.getFullYear()
     , fullDate = ('Posted on ' + m_names[currMonth] + ' ' + currDate + ', ' + currYear)
 
-  console.log(fullDate)
-  console.log('Title: ' + title + ' body: ' + body)
+  //console.log(fullDate)
+  //console.log('Title: ' + title + ' body: ' + body)
   client.query('INSERT INTO posts (title, body, date) values ($1, $2, $3);', [title, body, fullDate])
   res.redirect("back")
 }
 
 // Close database connection
-client.end()
+//client.end()

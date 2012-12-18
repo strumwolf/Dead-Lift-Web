@@ -1,15 +1,15 @@
 extends layout
 block content
-  .posts
-      h1= title
-      form(action='/new_post', authocomplete='off', enctype='multipart/form-data', method='post')
-        span Title:
-        br
-        input(type='text', name='title', id='editPostTitle', required)
-        br
-        span Body:
-        br
-        textarea(name='body', rows='6', cols='68', id='editPostBody', spellcheck='true', maxlength='320', required)
-        br
-        input(type='submit', value='Send')
+  .formMain
+    h1= title
+    form(action='/new_post', authocomplete='off', enctype='multipart/form-data', method='post')
+      span Title:
+      br
+      input(type='text', name='title', id='editPostTitle', required)
+      br
+      span Body:
+      br
+      textarea(name='body', rows='6', cols='68', id='editPostBody', spellcheck='true', maxlength='320', required)
+      br
+      input(type='submit', value='Send')
 

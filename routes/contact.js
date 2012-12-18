@@ -31,7 +31,13 @@ exports.sendMail = function (req, res) {
             console.log(error.message);
           else
             console.log(JSON.stringify(data)); // Do something with your data!
-        });        
+        });
+        mandrill.messages_send({message: { text: "Dead-Lift thanks you for your message. If you are looking to book a show are have a concern you will receive a response shortly", subject: "Thank You", from_email: "general@dead-lift.com", to: [{email: uEmail}], track_opens: "true"}}, function (error, data) {
+          if (error)
+            console.log(error.message);
+          else
+            console.log(JSON.stringify(data)); // Do something with your data!
+        });          
         console.log('Finishing Send')
         res.redirect('/thanks')
       }

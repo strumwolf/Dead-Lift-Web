@@ -1,0 +1,27 @@
+extends layout
+block content
+  #pageHeader
+    | User Login
+  .formMain
+    br
+    p
+      | Please Login.
+    br
+    form(id='UserLogin', action='/login', authocomplete='off', enctype='multipart/form-data', method='post') 
+      table
+        tr
+          td
+            | Username:  
+        tr
+          td          
+            input(id='username', type='text', name='username', required)
+        tr 
+          td
+            | Password:
+        tr
+          td
+            input(id='pass', type='password', name='pass', required)
+        tr
+          td
+            input(type='submit', value='Submit')
+   

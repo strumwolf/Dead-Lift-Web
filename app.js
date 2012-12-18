@@ -7,6 +7,7 @@ var express = require('express')
   , nib = require('nib')
   , post = require('./routes/post')
   , contact = require('./routes/contact')
+  , auth = require('./routes/login')
 
 // Config
 
@@ -22,7 +23,9 @@ app.set('view options', {
   layout: false})
 app.locals.pretty=true
 app.use(express.logger('dev'))
-app.use(express.cookieParser())
+app.use(express.cookieParser('secret'))
+app.use(express.cookieSession())
+//app.use(express.session({secret: "My Secret"}))
 app.use(express.methodOverride())
 app.use(express.bodyParser())
 app.use(stylus.middleware(
@@ -33,24 +36,11 @@ app.use(stylus.middleware(
 app.use(express.static(__dirname + '/public'))
 app.use(express.favicon(__dirname + '/public/images/favicon.ico'))
 
-/*var conString = 'pg://pi@localhost:5432/dldb'*/
-
-/*
-app.get('/offline.appcache', function (req, res) {
-  res.header('Content-Type', 'text/cache-manifest'),
-  res.end('CACHE MANIFEST')
-})
-*/
-
 // Web gets
 
 app.get('/', post.postings)
 
-app.get('/new_post', function (req, res) {
-  res.render('new_post',
-  { title: 'New Post' }
-  )
-})
+app.get('/new_post', auth.member)
    
 app.get('/band', function (req, res) {
   res.render('band',
@@ -154,9 +144,17 @@ app.get('/public/images/favicon.ico', function (req, res) {
   )
 })
 
+app.get('/login', auth.loggedin)
+
+app.get('/logout', auth.logout)
+
 // Web Posts
 app.post('/new_post', post.post_set)
 
 app.post('/contact', contact.sendMail)
 
+app.post('/login', auth.valid)
+
+
+// Listens on port 3000
 app.listen(3000)
