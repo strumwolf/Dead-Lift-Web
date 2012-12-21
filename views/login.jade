@@ -4,8 +4,10 @@ block content
     | User Login
   .formMain
     br
-    p
-      | Please Login.
+    if (message)
+      p #{message}        
+    else
+      p Please Login!
     br
     form(id='UserLogin', action='/login', authocomplete='off', enctype='multipart/form-data', method='post') 
       table
@@ -20,7 +22,7 @@ block content
             | Password:
         tr
           td
-            input(id='pass', type='password', name='pass', required)
+            input(id='password', type='password', name='password', required)
         tr
           td
             input(type='submit', value='Submit')

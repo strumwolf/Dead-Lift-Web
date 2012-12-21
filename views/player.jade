@@ -1,0 +1,103 @@
+!!!5
+html
+	head
+		meta(charset='UTF-8')
+		title Dead-Lift #{title}
+		link(type='text/css', rel='stylesheet', href='/jplayer.blue.monday.css')
+		script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js')
+		script(type='text/javascript', src='/js/jquery.jplayer.min.js')
+		script(type="text/javascript", src="/js/jplayer.playlist.min.js")
+		script(type='text/javascript')
+			$(document).ready(function() {
+				var myplaylist = new jPlayerPlaylist({
+					jPlayer: "#jquery_jplayer_1",
+					cssSelectorAncestor: "#jp_container_1"
+					}, [
+						{
+							title: "Break Down",
+							Artist: "Dead-Lift",
+							mp3: "/tunes/BreakDown.mp3",
+							oga: "/tunes/BreakDown.ogg",
+							poster: "/images/poormans.jpg"
+						},
+						{
+							title: "Speak My Name",
+							Artist: "Dead-Lift",
+							mp3: "/tunes/SpeakMyName.mp3",
+							oga: "/tunes/SpeakMyName.ogg",
+							poster: "/images/poormans.jpg"
+						},
+						{
+							title: "No Comprimise",
+							Artist: "Dead-Lift",
+							mp3: "/tunes/NoComprimise.mp3",
+							oga: "/tunes/NoComprimise.ogg",
+							poster: "/images/poormans.jpg"
+						},
+						{
+							title: "Never Lay Down and Die",
+							Artist: "Dead-Lift",
+							mp3: "/tunes/NeverLayDownandDie.mp3",
+							oga: "/tunes/NeverLayDownandDie.ogg",
+							poster: "/images/poormans.jpg"
+						},
+						{
+							title: "Bring It On Again",
+							Artist: "Dead-Lift",
+							mp3: "/tunes/BringItOnAgain.mp3",
+							oga: "/tunes/BringItOnAgain.ogg",
+							poster: "/images/poormans.jpg"
+						}
+					], {						
+						swfPath: "/js",
+						supplied: "mp3, oga",
+						wmode: "window"
+					})
+				})
+	body
+		#jquery_jplayer_1.jp-jplayer
+		#jp_container_1.jp-audio
+			.jp-type-playlist
+				.jp-gui.jp-interface
+					ul.jp-controls
+						li
+							a.jp-previous(href='javascript:;', tabindex='1') previous
+						li
+							a.jp-play(href='javascript:;', tabindex='1') play
+						li
+							a.jp-pause(href='javascript:;', tabindex='1') pause
+						li
+							a.jp-next(href='javascript:;', tabindex='1') next
+						li
+							a.jp-stop(href='javascript:;', tabindex='1') stop
+						li
+							a.jp-mute(href='javascript:;', tabindex='1', title='mute') mute
+						li
+							a.jp-unmute(href='javascript:;', tabindex='1', title='unmute') unmute
+						li
+							a.jp-volume-max(href='javascript:;', tabindex='1', title='max volume') max volume
+					.jp-progress
+						.jp-seek-bar
+							.jp-play-bar
+					.jp-volume-bar
+						.jp-volume-bar-value
+					.jp-time-holder
+						.jp-current-time
+						.jp-duration
+					ul.jp-toggles
+						li
+							a.jp-shuffle(href='javascript:;', tabindex='1', title='shuffle') shuffle
+						li
+							a.jp-shuffle-off(href='javascript:;', tabindex='1', title='shuffle off') shuffle off
+						li
+							a.jp-repeat(href='javascript:;', tabindex='1', title='repeat') repeat
+						li
+							a.jp-repeat-off(href='javascript:;', tabindex='1', title='repeat off') repeat off
+				.jp-playlist
+					ul
+						li
+				.jp-no-solution
+					span Update Required
+					| To play the media you will need to either update your browser to a recent version or update your
+					a(href='http://get.adobe.com/flashplayer/', target='_blank') Flash plugin
+					| .
