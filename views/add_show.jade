@@ -1,0 +1,27 @@
+extends layout
+block content
+  .formMain
+    h1= title
+    form(action='/add_show', authocomplete='off', enctype='multipart/form-data', method='post')
+      span Date:
+      br
+      input(type='text', name='date', id='date', required)
+      br
+      span City:
+      br
+      input(type='text', name='city', id='city', required)
+      br
+      span State:
+      br
+      textarea(name='state', rows='1', cols='2', id='state', spellcheck='true', maxlength='2', required)
+      br
+      span Venue:
+      br
+      input(type='text', name='venue', id='venu', required)
+      br
+      span Bands:
+      br
+      textarea(name='bands', rows='1', cols='68', id='bands', maxlength='100', required)
+      br
+      input(type='submit', value='Send')
+

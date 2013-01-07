@@ -5,29 +5,18 @@ block content
   .showTable
     table
       tr
-        th 
-           | Date
-        th 
-           | Location
-        th 
-           | With
-      tr
-        td 
-           | Nov 09, 2012
-        td 
-           | Albany, NY
-           br
-           | Bogies
-        td 
-           | The Bruise Brothers
-      tr
-        td 
-           | Dec 29, 2012
-        td 
-           | Clifton Park, NY
-           br
-           | Upstate Concert Hall
-        td 
-           | Kill Switch Engage
-           br
-           | Shadows Fall   
+        th
+          | Date
+        th
+          | Location
+        th
+          | With
+      each d in result
+        tr
+          td #{d.day}
+          td 
+            ul
+              li #{d.city} #{d.state}
+              li #{d.venue}
+          td #{d.bands}
+   

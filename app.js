@@ -22,6 +22,7 @@ function compile(str, path) {
     .set('filename', path)
     .use(nib())
 }
+var oneYear = 31557600000
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jade')
 app.set('view options', {
@@ -46,7 +47,9 @@ app.use(stylus.middleware(
   , compile: compile
   }
 ))
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + '/public', {
+  maxAge: oneYear
+}))
 app.use(express.static(__dirname + '/skin'))
 app.use(express.favicon(__dirname + '/public/images/favicon.ico'))
 
@@ -64,7 +67,7 @@ app.get('/brian', get_handler.brian)
 
 app.get('/joe', get_handler.joe)
  
-app.get('/shows', get_handler.shows)
+app.get('/shows', post.shows)
 
 app.get('/video', get_handler.video)
 
@@ -86,6 +89,8 @@ app.get('/player', get_handler.player)
 
 app.get('/new_post', pass.ensureauth, pass.member)
 
+app.get('/add_show', pass.ensureauth, pass.memberShow)
+
 app.get('/login', pass.logauth)
 
 app.get('/logout', pass.logout)
@@ -98,6 +103,8 @@ app.get('/public/images/favicon.ico', function (req, res) {
 
 // Web Posts
 app.post('/new_post', post.post_set)
+
+app.post('/add_show', post.show_set)
 
 app.post('/contact', contact.sendMail)
 

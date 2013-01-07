@@ -75,6 +75,10 @@ exports.member = function(req, res){
   res.render('new_post', { title: "New Post", user: req.user })
 }
 
+exports.memberShow = function(req, res) {
+  res.render('add_show', {title: "New Show", user: req.user})
+}
+
 exports.logauth = function(req, res){
   res.render('login', { title: "Login", user: req.user, message: req.flash('error') });
 }

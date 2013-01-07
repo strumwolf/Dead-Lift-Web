@@ -47,5 +47,38 @@ exports.post_set = function (req, res) {
   res.redirect("back")
 }
 
+exports.shows = function (req, res) {
+  var query = client.query('select day, city, state, venue, bands from shows')
+  var show = []
+  query.on("row", function(row, result) {
+    result.addRow = (row)
+    show.push(row)
+  })
+  query.on("end", function(result) {
+    res.render('shows',
+    {title: 'Shows',
+     result: show}
+    )
+  })
+}
+
+exports.show_set = function (req, res) {
+  var day = req.body.date + "/"
+    , city = req.body.city
+    , state = req.body.state
+    , venue = req.body.venue
+    , bands = req.body.bands
+    , splitDate = day.split("/")
+    , m_names = new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec")
+
+  var preMonth = splitDate[0] - 1
+    , month = m_names[preMonth]
+
+  var fullDate = month + " " + splitDate[1] + ", " + splitDate[2]
+
+  client.query('INSERT INTO shows (day, city, state, venue, bands) values ($1, $2, $3, $4, $5);', [fullDate, city, state, venue, bands])
+  res.redirect("back")
+}
+
 // Close database connection
 //client.end()
