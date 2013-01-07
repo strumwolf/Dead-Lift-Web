@@ -4,7 +4,7 @@ var pg = require('pg')
 
 
 // Creates connection
-var client = new pg.Client({user: 'pi', password: 'megadeth13', database: 'dldb'})
+var client = new pg.Client({user: 'pi', password: 'elendil', database: 'dldb'})
 
 // Open database connection
 client.connect()
