@@ -1,0 +1,15 @@
+extends layout
+block content
+  .formMain
+    h1= title
+    form(action='/uploadPhoto', method='post', enctype='multipart/form-data')
+      span Add Thumbnail
+      br
+      input(type='file', name='newThumb', required)
+      br
+      span Add Photo
+      br
+      input(type='file', name='newPhoto', required)
+      br
+      input(type='submit', value='Send')
+

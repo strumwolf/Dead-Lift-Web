@@ -71,7 +71,8 @@ app.get('/shows', post.shows)
 
 app.get('/video', get_handler.video)
 
-app.get('/gallery', get_handler.gallery)
+//app.get('/gallery', get_handler.gallery)
+app.get('/gallery', post.gall)
 
 app.get('/discography', get_handler.disc)
 
@@ -91,6 +92,8 @@ app.get('/new_post', pass.ensureauth, pass.member)
 
 app.get('/add_show', pass.ensureauth, pass.memberShow)
 
+app.get('/uploadPhoto', pass.ensureauth, pass.memberPhoto)
+
 app.get('/login', pass.logauth)
 
 app.get('/logout', pass.logout)
@@ -105,6 +108,8 @@ app.get('/public/images/favicon.ico', function (req, res) {
 app.post('/new_post', post.post_set)
 
 app.post('/add_show', post.show_set)
+
+app.post('/uploadPhoto', post.newPhotoUpload)
 
 app.post('/contact', contact.sendMail)
 

@@ -31,3 +31,7 @@ block content
       img(src='/images/gallery/gallery_682_th.jpg', alt='')
     a.photoGallery.fancybox(rel='dlGallary', href='/images/gallery/gallery_683.jpg')
       img(src='/images/gallery/gallery_683_th.jpg', alt='')
+
+    each p in result
+      a.photoGallery.fancybox(rel='dlGallary', href='#{p.image}')
+        img(src='#{p.thumnail}', alt='')
