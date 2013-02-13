@@ -14,7 +14,7 @@ client.connect()
 
 // Displays posts from database. Ordered by id number.
 exports.postings = function (req, res) {
-  var query = client.query('SELECT title, body, date FROM posts ORDER BY id desc;')
+  var query = client.query('SELECT title, body, date FROM posts ORDER BY id desc limit 5;')
   var posts = []
   query.on("row", function(row, result) {
     result.addRow = (row)
@@ -50,7 +50,7 @@ exports.post_set = function (req, res) {
 }
 
 exports.shows = function (req, res) {
-  var query = client.query('select day, city, state, venue, bands from shows')
+  var query = client.query('select day, city, state, venue, bands from gigs order by date desc')
   var show = []
   query.on("row", function(row, result) {
     result.addRow = (row)
@@ -78,7 +78,7 @@ exports.show_set = function (req, res) {
 
   var fullDate = month + " " + splitDate[1] + ", " + splitDate[2]
 
-  client.query('INSERT INTO shows (day, city, state, venue, bands) values ($1, $2, $3, $4, $5);', [fullDate, city, state, venue, bands])
+  client.query('INSERT INTO gigs (date, day, city, state, venue, bands) values ($1, $2, $3, $4, $5, $6);', [day, fullDate, city, state, venue, bands])
   res.redirect("back")
 }
 

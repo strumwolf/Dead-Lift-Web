@@ -88,6 +88,11 @@ app.get('/thanks', get_handler.thanks)
 
 app.get('/player', get_handler.player)
 
+app.get('/newPlayer', function (req, res) {
+  res.render('newPlayer',
+    {title: "New Player"})
+})
+
 app.get('/new_post', pass.ensureauth, pass.member)
 
 app.get('/add_show', pass.ensureauth, pass.memberShow)
