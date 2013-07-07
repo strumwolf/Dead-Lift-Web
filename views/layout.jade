@@ -22,6 +22,11 @@ html
       {
         document.location.href = theUrl;
       }
+    script(type='text/javascript')
+      function open_player()
+      {
+        window.open("/player", "MP3_Player", "width=448, height=200, location=no, menubar=no, directories=no, toolbar=no, status=yes, resizable=0")
+      }
   body
     .screen
       header
@@ -39,7 +44,7 @@ html
             li 
               a(href='/video') Video
             li
-              a(href='#', onclick='window.open("/player", "MP3_Player", "width=448, height=200, location=no, menubar=no, directories=no, toolbar=no, status=yes")') Tunes
+              a(href='#', onclick='open_player()') Tunes
             li
               a(href='/gallery') Gallery
             li 

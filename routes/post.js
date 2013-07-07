@@ -14,22 +14,23 @@ client.connect()
 
 // Displays posts from database. Ordered by id number.
 exports.postings = function (req, res) {
-  var query = client.query('SELECT title, body, date FROM posts ORDER BY id desc limit 5;')
-  var posts = []
-  query.on("row", function(row, result) {
-    result.addRow = (row)
-    posts.push(row)
-  })
-  query.on("end", function(result) {
-    //console.log(result)
-    //console.log(result.rowCount + ' rows where received')
-    //console.log(result.rows[0])
-    //console.log(posts.valueOf())
-    res.render('index',
-    { title: 'Home',
-      result: posts}
-    )
-  })
+    var query = client.query('SELECT title, body, date FROM posts ORDER BY id desc limit 5;')
+    var posts = []
+    query.on("row", function(row, result) {
+      result.addRow = (row)
+      posts.push(row)
+    })
+    query.on("end", function(result) {
+      //console.log(result)
+      //console.log(result.rowCount + ' rows where received')
+      //console.log(result.rows[0])
+      //console.log(posts.valueOf())
+      res.render('index',
+      { title: 'Home',
+        result: posts}
+      )
+    })
+  
 }
 
 // Enters new posts into the database and assigns date.
@@ -62,6 +63,7 @@ exports.shows = function (req, res) {
      result: show}
     )
   })
+  
 }
 
 exports.show_set = function (req, res) {
@@ -77,7 +79,6 @@ exports.show_set = function (req, res) {
     , month = m_names[preMonth]
 
   var fullDate = month + " " + splitDate[1] + ", " + splitDate[2]
-
   client.query('INSERT INTO gigs (date, day, city, state, venue, bands) values ($1, $2, $3, $4, $5, $6);', [day, fullDate, city, state, venue, bands])
   res.redirect("back")
 }
@@ -113,22 +114,22 @@ exports.newPhotoUpload = function (req, res){
 }
 
 exports.gall = function (req, res) {
-  var query = client.query('SELECT thumnail, image FROM photo ORDER BY date;')
-  var images = []
-  query.on("row", function(row, result) {
-    result.addRow = (row)
-    images.push(row)
-  })
-  query.on("end", function(result) {
-    //console.log(result)
-    //console.log(result.rowCount + ' rows where received')
-    //console.log(result.rows[0])
-    //console.log(posts.valueOf())
-    res.render('gallery',
-    { title: 'Gallery',
-      result: images}
-    )
-  })
+    var query = client.query('SELECT thumnail, image FROM photo ORDER BY date;')
+    var images = []
+    query.on("row", function(row, result) {
+      result.addRow = (row)
+      images.push(row)
+    })
+    query.on("end", function(result) {
+      //console.log(result)
+      //console.log(result.rowCount + ' rows where received')
+      //console.log(result.rows[0])
+      //console.log(posts.valueOf())
+      res.render('gallery',
+      { title: 'Gallery',
+        result: images}
+      )
+    })
 }
 
 // Close database connection
